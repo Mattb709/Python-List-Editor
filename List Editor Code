@@ -1,4 +1,4 @@
-#current list can be set to any of the users lists
+#current list can be set to any of the users lists or variables assigned to lists
 
 current_list = [0,1,2]
 
