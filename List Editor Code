@@ -1,0 +1,67 @@
+#current list can be set to any of the users lists
+
+current_list = [0,1,2]
+
+def display_list(current_list):
+    print ("Displaying The Selected List:")
+    print (current_list)
+    
+
+#If user calls an invalid list item the tool gives them a notification
+
+
+def position_choice():
+    
+    choice = 'wrong'
+    
+    while choice not in ['0','1','2']:
+        
+        choice = input("Pick a position (0,1,2): ")
+        
+        if choice not in ['0','1','2']:
+            print("Sorry, invalid choice! ")
+        
+    return int(choice)
+
+# User can select item in list and change it
+
+def replacement_choice(current_list,position):
+    
+    user_placement = input ("Type a string to place at position: ")
+    
+    current_list[position] = user_placement
+    
+    return current_list
+
+
+# User is given the option to continue editing the list or exit the tool.
+
+def continue_choice():
+    
+    choice = 'wrong'
+    
+    while choice not in ['Y','N']:
+        
+        choice = input("would you like to continue? (Y or N)")
+    
+        if choice not in ['Y','N']:
+            print("Please choose Y or N ")
+        
+    if choice == "Y":
+        return True
+    else:
+        return False
+    
+keepgoing = True
+current_list = [0,1,2]
+
+while keepgoing:
+    
+    display_list(current_list)
+    
+    position = position_choice()
+    
+    current_list = replacement_choice(current_list,position)
+    display_list(current_list)
+    
+    keepgoing = continue_choice()
